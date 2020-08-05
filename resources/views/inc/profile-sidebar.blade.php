@@ -1,5 +1,5 @@
 <img src="/img/noimage.png" alt="" class="rounded-circle" width="140px" height="140px">
-<span class="text-uppercase fw-semibold margin-top-ten">{{ __('Diego Geovanny Trigueros Fontan') }}</span>
+<span class="text-uppercase fw-semibold margin-top-ten">{{$user->nombresUsuario." ".$user->apellidosUsuario}}</span>
 <div class="container-data d-flex align-items-start flex-column">
     <div class="user-data margin-top-ten">
         <i class="material-icons primary-icon align-middle">

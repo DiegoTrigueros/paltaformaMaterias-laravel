@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Materia;
+use App\User;
 
 class DocentesController extends Controller
 {
@@ -17,10 +20,11 @@ class DocentesController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
         //Seleccionando las materias de la BD
         $materias = Materia::all(['codigoMateria', 'Materia']);
 
-        return view('teacher');
+        return view('teacher', compact('materias', 'user'));
     }
 
     /**
