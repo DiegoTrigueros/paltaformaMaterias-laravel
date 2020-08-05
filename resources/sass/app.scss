@@ -1,0 +1,97 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+body{
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.landing{
+    background-image: url("/img/landing-bg.png");
+}
+html{
+    height: 100%;
+}
+.condensed{
+    font-family: $font-family-sans-serif;
+}
+.navbar-brand{
+    font-size: 32px;
+}
+.font-weight-bold{
+    font-weight: 700;
+}
+.fw-semibold{
+    font-weight: 600;
+}
+.login-heading{
+    font-size: 22px;
+}
+input[type="text"],
+input[type="password"],
+input[type="number"],
+select{
+    border: 1px solid $primary !important;
+}
+.form-label-group{
+    padding: 5px 0 !important;
+}
+button#register{
+    margin: 10px 0 !important;
+}
+.bg {
+    position: fixed; 
+    top: -50%; 
+    left: -50%; 
+    width: 200%; 
+    height: 200%;
+    z-index: -100;
+  }
+  .bg img {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    margin: auto; 
+    min-width: 50%;
+    min-height: 50%;
+  }
+.margin-top-ten{
+    margin-top: 10px;
+}
+.material-icons{
+    display: inline-flex;
+    vertical-align: bottom;
+    padding: 0 5px;
+    font-size: 28px;
+}
+.user-data{
+    font-size: 20px;
+}
+.current{
+    border-bottom: 2px solid $primary;
+}
+th{
+    color:#918C8C;
+}
+.table td,
+.table th{
+    text-align: center;
+}
+.card{
+    border: 1px solid grey;
+}
+.padding-ten{
+    padding: 10px;
+}
+
