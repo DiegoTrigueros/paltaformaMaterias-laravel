@@ -22,3 +22,7 @@ Route::get('/',function(){
 });
 
 Route::resource("/teacher", 'DocentesController');
+
+Route::get('/about',function(){
+    return view("pages.about");
+})->name('about');
