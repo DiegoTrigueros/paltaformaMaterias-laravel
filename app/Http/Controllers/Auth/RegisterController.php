@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -70,7 +71,7 @@ class RegisterController extends Controller
         if (request()->hasFile('imagenPerfil')) {
             //Get file name w/ extension
             $filenameWithExt = request()->file('imagenPerfil')->getClientOriginalName();
-
+            
             //Get just file name
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
 
@@ -80,7 +81,14 @@ class RegisterController extends Controller
             //Filename to store
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
 
-            $path = request()->file('imagenPerfil')->storeAs('public/imagenesPerfil',$fileNameToStore);
+            $path = request()->file('imagenPerfil')->storeAs('/public/imagenesPerfil',$fileNameToStore);
+
+            //Resize image
+            $thumbnailpath = public_path('storage/imagenesPerfil/'.$fileNameToStore);
+            $img = Image::make($thumbnailpath)->resize(140, 140, function($constraint) {
+                $constraint->aspectRatio();
+            });
+            $img->save($thumbnailpath);
         }else{
             $fileNameToStore = 'noimage.jpg';
             $path = request()->file('imagenPerfil')->storeAs('public/imagenesPerfil',$fileNameToStore);

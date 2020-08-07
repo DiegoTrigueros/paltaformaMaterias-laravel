@@ -11030,3 +11030,23 @@ th {
   padding: 10px;
 }
 
+.inst-logo {
+  height: 250px;
+  width: 250px;
+  background-color: #D8D8D8;
+}
+
+.red-bg {
+  background-color: #E74C3C;
+}
+
+.dropdown-item:hover {
+  background-color: #D8D8D8;
+  color: #000000;
+  border-radius: 0.25rem;
+}
+
+.dropdown-item {
+  color: #f8f9fa;
+}
+

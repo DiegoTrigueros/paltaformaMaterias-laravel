@@ -7,16 +7,16 @@
             <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link current" href="#">PERFIL<span class="sr-only">(current)</span></a>
+                        <a class="nav-link current" href="{{ route('home') }}">PERFIL<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">INSCRIPCIÓN DE MATERIAS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ACERCA DE</a>
+                    <a class="nav-link" href="{{ route('about') }}">ACERCA DE</a>
                     </li>
                 </ul>
-                <div class="form-inline mt-2 mt-md-0">
+                <div class="form-inline mt-2 mt-md-0 red-bg rounded">
                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                       document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}

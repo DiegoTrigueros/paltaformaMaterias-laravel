@@ -13,7 +13,7 @@
                         <a class="nav-link" href="#">GRUPOS DE PROYECTO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ACERCA DE</a>
+                    <a class="nav-link" href="{{route("about")}}">ACERCA DE</a>
                     </li>
                 </ul>
                 <div class="form-inline mt-2 mt-md-0">

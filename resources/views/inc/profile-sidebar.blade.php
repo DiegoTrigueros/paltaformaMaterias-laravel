@@ -1,4 +1,4 @@
-<img src="/img/noimage.png" alt="" class="rounded-circle" width="140px" height="140px">
+<img src="/storage/imagenesPerfil/{{$user->imagenPerfil}}" alt="" class="rounded-circle" width="140px" height="140px">
 <span class="text-uppercase fw-semibold margin-top-ten">{{$user->nombresUsuario." ".$user->apellidosUsuario}}</span>
 <div class="container-data d-flex align-items-start flex-column">
     <div class="user-data margin-top-ten">

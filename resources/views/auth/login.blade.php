@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="bg">
+    <img src="/img/landing-bg.png" alt="">
+</div>
     <div class="container-fluid">
         <div class="row no-gutter">
             <div class="col-md-4 col-lg-6">

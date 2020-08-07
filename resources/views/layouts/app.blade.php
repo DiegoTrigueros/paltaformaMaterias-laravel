@@ -21,7 +21,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="landing">
+<body>
     <div id="app">
         @if (Auth::check())
             @if (Auth::user()->cargo == "Estudiante")
