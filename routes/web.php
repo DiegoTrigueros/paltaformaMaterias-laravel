@@ -26,3 +26,7 @@ Route::resource("/teacher", 'DocentesController');
 Route::get('/about',function(){
     return view("pages.about");
 })->name('about');
+
+Route::get('/inscripcionMaterias',function(){
+    return view("pages.inscMaterias");
+})->name('inscMaterias');

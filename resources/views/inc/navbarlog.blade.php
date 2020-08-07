@@ -10,7 +10,7 @@
                         <a class="nav-link current" href="{{ route('home') }}">PERFIL<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">INSCRIPCIÓN DE MATERIAS</a>
+                    <a class="nav-link" href="{{ route('inscMaterias') }}">INSCRIPCIÓN DE MATERIAS</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="{{ route('about') }}">ACERCA DE</a>

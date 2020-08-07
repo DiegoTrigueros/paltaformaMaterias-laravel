@@ -23,7 +23,7 @@ class InscripcionesController extends Controller
      */
     public function create()
     {
-        //
+        return route('inscMaterias');
     }
 
     /**
