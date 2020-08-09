@@ -19,6 +19,7 @@ class CreateGrupoTable extends Migration
             $table->tinyInteger('cupo');
             $table->char('codigoEmpleado');
             $table->char('tipo');
+            $table->foreign('codigoMateria')->references('codigoMateria')->on('materia');
         });
     }
 

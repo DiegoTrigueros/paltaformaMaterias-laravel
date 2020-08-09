@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use App\Materia;
+use App\Grupo;
 
 class InscripcionesController extends Controller
 {
+    public function getGroups($materias){
+        
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +20,10 @@ class InscripcionesController extends Controller
      */
     public function index()
     {
-        //
+        $materias = Materia::All();
+        $gruposT = Grupo::with('materia')->where('tipo','1')->get();
+        $gruposL = Grupo::with('materia')->where('tipo','2')->get();
+        return view('pages.inscMaterias', compact('materias','gruposT','gruposL'));
     }
 
     /**
@@ -23,7 +33,7 @@ class InscripcionesController extends Controller
      */
     public function create()
     {
-        return route('inscMaterias');
+        
     }
 
     /**
