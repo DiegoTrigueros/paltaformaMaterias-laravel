@@ -6,13 +6,12 @@ use Illuminate\Http\Request;
 use DB;
 use App\Materia;
 use App\Grupo;
+use Carbon\Carbon;
+use App\Inscripcion;
+use Auth;
 
 class InscripcionesController extends Controller
 {
-    public function getGroups($materias){
-        
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -33,7 +32,7 @@ class InscripcionesController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -44,7 +43,23 @@ class InscripcionesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $codigoG = $request->input('gTeorico');
+        $materias = Grupo::with("materia")->find($codigoG);
+        $codigoM = $materias->codigoMateria;
+        $codigoS = Auth::user()->codigoUsuario;
+        $n = 0;
+        $check = DB::select('CALL checkExisting(?, ?, ?)', array($codigoS, $codigoM, $n));
+        if($n > 0){
+            return redirect(route('inscMaterias'))->with('error',"Ya estás inscrito")->with('codigoM', $codigoM);
+        }else{
+            $fecha = Carbon::now()->format('Y-m-d');
+            $inscripcion = new Inscripcion();
+            $inscripcion->codigoEstudiante = $codigoS;
+            $inscripcion->codigoGrupo = $codigoG;
+            $inscripcion->fechaInscripcion = $fecha;
+            $inscripcion->save();   
+            return redirect(route('inscMaterias'))->with('success','Materia Inscrita')->with('codigoM', $codigoM);
+        }
     }
 
     /**
