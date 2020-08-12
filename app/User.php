@@ -42,4 +42,8 @@ class User extends Authenticatable
     public $timestamps = false;
     protected $primaryKey = 'codigoUsuario';
     public $incrementing = false; 
+
+    public function grupos(){
+        return $this->belongsToMany('App\Grupo');
+    }
 }

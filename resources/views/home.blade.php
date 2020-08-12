@@ -18,7 +18,7 @@
                             <div class="col">
                                 <select class="form-control" name="materia" id="">
                                     @foreach ($materias as $materia)
-                                        <option value="{{$materia->codigoMateria}}">{{$materia->Materia}}</option>
+                                        <option value="{{ $materia->codigoMateria }}">{{ $materia->Materia }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -56,100 +56,40 @@
                                     <td>TF170273</td>
                                     <td class="text-uppercase">TF170243</td>
                                     <td>diegofytn@gmail.com</td>
-                                </tr>   
+                                </tr>
                             </table>
                         </div>
                     </div>
                 </div>
                 <div class="card-deck">
-                    <div class="card margin-top-ten padding-ten" style="width: 18rem;">
-                        <h5 class="card-title font-weight-bold">
-                            {{ __('MDB104 01T') }}
-                        </h5>
-                        <div class="card-body">
-                            <p class="">
-                                {{__("Modelamiento y Diseño de Bases de Datos")}}
-                            </p>
-                            <p>
-                                {{__("LUNES: 7:15 - 9:15am")}}
-                            </p>
-                            <p>
-                                {{__("MIÉRCOLES: 7:15 - 9:15am")}}
-                            </p>
-                            <p>
-                                {{__("DOCENTE: Raúl Edgardo Nombre Ejemplo")}}
-                            </p>
-                            <p>
-                                {{__("docenteejemplo@ejemplo.com")}}
-                            </p>
+                    @foreach ($info as $gr)
+                        <div class="card margin-top-ten padding-ten" style="width: 18rem;">
+                            <h5 class="card-title font-weight-bold">
+                                {{ $gr->codigoGrupo }}
+                            </h5>
+                            <div class="card-body">
+                                <p class="">
+                                    {{ __('Modelamiento y Diseño de Bases de Datos') }}
+                                </p>
+                                <p>
+                                    {{ __('LUNES: 7:15 - 9:15am') }}
+                                </p>
+                                <p>
+                                    {{ __('MIÉRCOLES: 7:15 - 9:15am') }}
+                                </p>
+                                <p class="text-uppercase">
+                                    @foreach ($empleados as $empleado)
+                                        @if ($empleado->codigoUsuario == $gr->grupo->codigoEmpleado)
+                                            {{'DOCENTE: '.$empleado->nombresUsuario." ".$empleado->apellidosUsuario}}
+                                        @endif
+                                    @endforeach
+                                </p>
+                                <p>
+                                    {{ __('docenteejemplo@ejemplo.com') }}
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card margin-top-ten padding-ten" style="width: 18rem;">
-                        <h5 class="card-title font-weight-bold">
-                            {{ __('MDB104 01T') }}
-                        </h5>
-                        <div class="card-body">
-                            <p class="">
-                                {{__("Modelamiento y Diseño de Bases de Datos")}}
-                            </p>
-                            <p>
-                                {{__("LUNES: 7:15 - 9:15am")}}
-                            </p>
-                            <p>
-                                {{__("MIÉRCOLES: 7:15 - 9:15am")}}
-                            </p>
-                            <p>
-                                {{__("DOCENTE: Raúl Edgardo Nombre Ejemplo")}}
-                            </p>
-                            <p>
-                                {{__("docenteejemplo@ejemplo.com")}}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card margin-top-ten padding-ten" style="width: 18rem;">
-                        <h5 class="card-title font-weight-bold">
-                            {{ __('MDB104 01T') }}
-                        </h5>
-                        <div class="card-body">
-                            <p class="">
-                                {{__("Modelamiento y Diseño de Bases de Datos")}}
-                            </p>
-                            <p>
-                                {{__("LUNES: 7:15 - 9:15am")}}
-                            </p>
-                            <p>
-                                {{__("MIÉRCOLES: 7:15 - 9:15am")}}
-                            </p>
-                            <p>
-                                {{__("DOCENTE: Raúl Edgardo Nombre Ejemplo")}}
-                            </p>
-                            <p>
-                                {{__("docenteejemplo@ejemplo.com")}}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card margin-top-ten padding-ten" style="width: 18rem;">
-                        <h5 class="card-title font-weight-bold">
-                            {{ __('MDB104 01T') }}
-                        </h5>
-                        <div class="card-body">
-                            <p class="">
-                                {{__("Modelamiento y Diseño de Bases de Datos")}}
-                            </p>
-                            <p>
-                                {{__("LUNES: 7:15 - 9:15am")}}
-                            </p>
-                            <p>
-                                {{__("MIÉRCOLES: 7:15 - 9:15am")}}
-                            </p>
-                            <p>
-                                {{__("DOCENTE: Raúl Edgardo Nombre Ejemplo")}}
-                            </p>
-                            <p>
-                                {{__("docenteejemplo@ejemplo.com")}}
-                            </p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

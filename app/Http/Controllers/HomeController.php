@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Materia;
 use App\User;
+use App\Inscripcion;
 
 class HomeController extends Controller
 {
@@ -27,7 +28,10 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $user_id = $user->codigoUsuario;
+        $info = Inscripcion::With('grupo')->where('codigoEstudiante',$user_id)->get();
         $materias = Materia::all(['codigoMateria', 'Materia']);
-        return view('home', compact('materias','user'));
+        $empleados = User::Where('cargo','Docente')->get();
+        return view('home', compact('materias','user','info','empleados'));
     }
 }
