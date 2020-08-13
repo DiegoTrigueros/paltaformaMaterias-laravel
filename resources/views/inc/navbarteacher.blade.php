@@ -10,7 +10,7 @@
                         <a class="nav-link current" href="#">PERFIL<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">GRUPOS DE PROYECTO</a>
+                        <a class="nav-link" href="{{route('gruposProyecto')}}">GRUPOS DE PROYECTO</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="{{route("about")}}">ACERCA DE</a>

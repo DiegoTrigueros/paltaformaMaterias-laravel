@@ -11055,3 +11055,9 @@ th {
   padding: 10px 0;
 }
 
+.card-groups {
+  min-height: 500px;
+  background-image: url("/img/card-bg.png");
+  background-size: 100% 100%;
+}
+

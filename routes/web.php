@@ -30,3 +30,5 @@ Route::get('/about',function(){
 Route::get('/inscripcionMaterias','InscripcionesController@index')->name('inscMaterias');
 //Ruta para ingresar inscripción
 Route::post('/inscripcion/create',['as' => 'createInsc', 'uses' => 'InscripcionesController@store']);
+//Ruta para pantalla de grupos de proyecto
+Route::get('/gruposproyecto','GruposProyectoController@index')->name('gruposProyecto');
