@@ -46,4 +46,8 @@ class User extends Authenticatable
     public function grupos(){
         return $this->belongsToMany('App\Grupo');
     }
+
+    public function gruposProyecto(){
+        return $this->belongsToMany('App\GrupoProyecto');
+    }
 }

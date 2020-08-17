@@ -11056,8 +11056,10 @@ th {
 }
 
 .card-groups {
-  min-height: 500px;
-  background-image: url("/img/card-bg.png");
-  background-size: 100% 100%;
+  min-height: 300px;
+}
+
+.project-groups .btn {
+  margin: 0 5px;
 }
 

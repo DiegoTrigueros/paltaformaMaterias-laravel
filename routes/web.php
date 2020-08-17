@@ -32,3 +32,5 @@ Route::get('/inscripcionMaterias','InscripcionesController@index')->name('inscMa
 Route::post('/inscripcion/create',['as' => 'createInsc', 'uses' => 'InscripcionesController@store']);
 //Ruta para pantalla de grupos de proyecto
 Route::get('/gruposproyecto','GruposProyectoController@index')->name('gruposProyecto');
+//Ruta para modificar los grupos del dropdown - pantalla de grupos de proyecto
+Route::get('/getGroups/{codigoMateria}','GruposProyectoController@getGroups');

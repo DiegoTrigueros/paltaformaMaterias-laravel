@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use App\Grupo;
+use Auth;
 
 class GruposProyectoController extends Controller
 {
@@ -13,7 +16,10 @@ class GruposProyectoController extends Controller
      */
     public function index()
     {
-        return view('pages.gruposP');
+        $user_id = Auth::User()->codigoUsuario;
+        $grupos = GRUPO::With('materia')->where('codigoEmpleado',$user_id)->get();
+        $grupos = $grupos->unique('codigoMateria');
+        return view('pages.gruposP', compact('grupos'));
     }
 
     /**
@@ -80,5 +86,29 @@ class GruposProyectoController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Get groups for each subject
+     * 
+     * @return json
+     */
+    public function getGroups()
+    {
+        $codigoMateria = $_GET['codigoMateria'];
+        $gruposMateria = GRUPO::Where('codigoMateria',$codigoMateria)->get();
+        return response()->json(['grupos' => $gruposMateria]);
+    }
+
+    /**
+     * Get project groups for each group
+     * 
+     * @return json
+     */
+    public function getProjectGroups(){
+        $codMateria = $_GET['codigoMateria'];
+        $codigoGrupo = $_GET['codigoGupo'];
+        $gruposProyecto = GrouposProyecto::With('users')->where('codigoGrupo',$codigoGrupo);
+        return response()->json(['gruposProyecto' => $gruposMateria]);
     }
 }
